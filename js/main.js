@@ -4,6 +4,7 @@
 
 var sw, sh;
 var cat;
+var clickMe;
 var state = 0;
 var gift;
 var PI = Math.PI, PI2 = Math.PI*2, HalfPI = Math.PI/2;
@@ -21,9 +22,8 @@ function init() {
 	sh = $(window).height();
 	cat = new Cat();
 	zzz = new ZzZzZ($("#zZz"));
+	clickMe = new ClickMe();
 	state = 0;
-	text = new TextEffect($("#texts"));
-	text.write("Wake up the cat !");
 	requestAnimationFrame(mainLoop);
 	$("#cat").click(function(e){
 		catClick();
@@ -34,12 +34,13 @@ function mainLoop() {
 	var dt = Date.now()-lastTime;
 	cat.update(dt);
 	zzz.update(dt);
+	clickMe.update(dt);
 	lastTime = lastTime+dt;
 	requestAnimationFrame(mainLoop);
 }
 
 function catClick(){
-	console.log("Miaowww ?");
-	TweenLite.to($("#cat"),.2,{css:{marginLeft:"-165px",marginTop:"-165px", scaleX:1.1,scaleY:1.1}});
-	TweenLite.to($("#cat"),.2,{delay:.1,css:{marginLeft:"-150px",marginTop:"-150px",scaleX:1,scaleY:1}});
+	cat.close();
+	TweenLite.to($("#cat"),.1,{css:{marginLeft:"-115px",marginTop:"-115px", scaleX:.7,scaleY:.7}});
+	TweenLite.to($("#cat"),.3,{delay:.1,css:{marginLeft:"-150px",marginTop:"-150px",scaleX:1,scaleY:1}});
 }
