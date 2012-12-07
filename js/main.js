@@ -22,12 +22,21 @@ function init() {
 	cat = new Cat();
 	zzz = new ZzZzZ($("#zZz"));
 	state = 0;
-	text = new TextEffect($("#texts"));
-	text.write("Wake up the cat !");
+	// text = new TextEffect($("#texts"));
+	// text.write("Wake up the cat !");
+	createCatTail();
 	requestAnimationFrame(mainLoop);
 	$("#cat").click(function(e){
 		catClick();
 	});
+}
+
+function createCatTail () {
+	var canvas = document.createElement('canvas');
+	canvas.width= 500;
+	canvas.height= 500;
+	var catTail = new CatTail(canvas, 10);
+	$('#catTail').append(canvas);
 }
 
 function mainLoop() {

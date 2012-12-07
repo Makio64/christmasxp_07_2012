@@ -41,6 +41,15 @@ body {
 	position: absolute;
 }
 
+#catTail{
+	position: absolute;
+	margin-left:-250px;
+	margin-top: -250px;
+	top: 52%;
+	left: 36%;
+	z-index: 10;
+}
+
 #wall {
 	z-index: 0;
 	position: absolute;
