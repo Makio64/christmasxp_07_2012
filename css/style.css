@@ -17,23 +17,25 @@ body {
 
 #texts{
 	position: absolute;
-	font-family: 'Rum Raisin', sans-serif;
-	left: 0;
-	top: 70%;
-	width: 100%;
-	text-align: center;
-	color: #f25151;
-	font-weight: normal;
-	font-size: 36px;
+	z-index: 10;
+	left: 50%;
+	top: 50%;
+	opacity: .5;
+	background: #000;
+}
+
+#texts img{
+	position: absolute;
+	z-index: 11;
 }
 
 #zZz{
-	z-index: 1;
+	z-index: 30;
 	position: absolute;
 	left:50%;
 	top:60%;
-	margin-left:50px;
-	margin-top: -410px; 
+	margin-left:60px;
+	margin-top: -415px; 
 }
 
 #zZz img{
@@ -61,7 +63,7 @@ body {
 }
 
 #cat {
-	z-index: 1;
+	z-index: 20;
 	position: absolute;
 	cursor: pointer;
 	left:50%;

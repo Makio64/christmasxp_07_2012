@@ -44,13 +44,26 @@ var Cat = function(){
 				this.handLeft.css('top',String(75+4*Math.sin(this.t/500))+"px");
 				this.body.css('top',String(Math.floor(16+(1-Math.sin(this.t/300))*4))+"px");
 				this.body.css('height',String(Math.floor(129+Math.sin(this.t/300)*4))+"px");
-				// this.handRight.css('left',String(110+4*Math.cos(this.t/700))+"px");
 				this.handRight.css('top',String(75+4*Math.abs(Math.sin(this.t/1800)))+"px");
 				break;
 
 		}
-		
 	};
+
+	this.close = function(){
+		this.state = 2;
+		TweenLite.to(this.handLeft,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.ear2,.2,{css:{opacity:0,left:95}});
+		TweenLite.to(this.ear1,.2,{css:{opacity:0,left:75,top:30}});
+		TweenLite.to(this.head,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.mouth,.05,{css:{opacity:0,left:75}});
+		TweenLite.to(this.mustache,.05,{css:{opacity:0,left:75}});
+		TweenLite.to(this.handRight,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.tail,.2,{css:{opacity:0,left:70,top:50}});
+		TweenLite.to(this.eye1,.05,{css:{opacity:0,left:130}});
+		TweenLite.to(this.eye2,.05,{css:{opacity:0,left:130}});
+		TweenLite.to(this.shadow,.05,{css:{opacity:0}});
+	}
 
 	this.init = function(){
 		console.log("miaow");
