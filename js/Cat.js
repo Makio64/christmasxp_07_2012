@@ -4,6 +4,7 @@ var Cat = function(){
 
 	this.t = 0;
 	this.state = 1;
+	// this.sound = new Audio();
 
 	this.shadow = $("<img id='shadow' src='./img/shadow.png'/>");
 	this.body = $("<img id='body' src='./img/body.png'/>");
