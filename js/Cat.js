@@ -52,16 +52,17 @@ var Cat = function(){
 
 	this.close = function(){
 		this.state = 2;
-		TweenLite.to(this.handLeft,.8,{css:{opacity:0}});
-		TweenLite.to(this.ear2,.8,{css:{opacity:0,left:95}});
-		TweenLite.to(this.ear1,.8,{css:{opacity:0,left:75}});
-		TweenLite.to(this.head,.8,{css:{opacity:0,left:75}});
-		TweenLite.to(this.mouth,.8,{css:{opacity:0}});
-		TweenLite.to(this.mustache,.8,{css:{opacity:0}});
-		TweenLite.to(this.handRight,.8,{css:{opacity:0,left:75}});
-		TweenLite.to(this.tail,.8,{css:{opacity:0}});
-		TweenLite.to(this.eye1,.8,{css:{opacity:0}});
-		TweenLite.to(this.eye2,.8,{css:{opacity:0}});
+		TweenLite.to(this.handLeft,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.ear2,.2,{css:{opacity:0,left:95}});
+		TweenLite.to(this.ear1,.2,{css:{opacity:0,left:75,top:30}});
+		TweenLite.to(this.head,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.mouth,.05,{css:{opacity:0,left:75}});
+		TweenLite.to(this.mustache,.05,{css:{opacity:0,left:75}});
+		TweenLite.to(this.handRight,.2,{css:{opacity:0,left:75}});
+		TweenLite.to(this.tail,.2,{css:{opacity:0,left:70,top:50}});
+		TweenLite.to(this.eye1,.05,{css:{opacity:0,left:130}});
+		TweenLite.to(this.eye2,.05,{css:{opacity:0,left:130}});
+		TweenLite.to(this.shadow,.05,{css:{opacity:0}});
 	}
 
 	this.init = function(){
