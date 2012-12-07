@@ -3,6 +3,7 @@
 var Cat = function(){
 
 	this.t = 0;
+	this.state = 1;
 
 	this.shadow = $("<img id='shadow' src='./img/shadow.png'/>");
 	this.body = $("<img id='body' src='./img/body.png'/>");
@@ -17,27 +18,37 @@ var Cat = function(){
 	this.eye1 = $("<img id='eye1' src='./img/eye1.png'/>");
 	this.eye2 = $("<img id='eye2' src='./img/eye2.png'/>");
 
-	$(".cat").append(this.shadow);
-	$(".cat").append(this.body);
-	$(".cat").append(this.handLeft);
-	$(".cat").append(this.ear2);
-	$(".cat").append(this.head);
-	$(".cat").append(this.ear1);
-	$(".cat").append(this.mouth);
-	$(".cat").append(this.mustache);
-	$(".cat").append(this.handRight);
-	$(".cat").append(this.tail);
-	$(".cat").append(this.eye1);
-	$(".cat").append(this.eye2);
+	container = $("#cat");
+	container.append(this.shadow);
+	container.append(this.body);
+	container.append(this.handLeft);
+	container.append(this.ear2);
+	container.append(this.head);
+	container.append(this.ear1);
+	container.append(this.mouth);
+	container.append(this.mustache);
+	container.append(this.handRight);
+	container.append(this.tail);
+	container.append(this.eye1);
+	container.append(this.eye2);
 
-	this.update = function(dt){
+	this.update = function(dt) {
 		this.t += dt;
-		console.log(this.t);
-		this.handLeft.css('top',String(75+4*Math.sin(this.t/500))+"px");
-		this.body.css('top',String(Math.floor(16+(1-Math.sin(this.t/300))*4))+"px");
-		this.body.css('height',String(Math.floor(129+Math.sin(this.t/300)*4))+"px");
-		//this.handRight.css('top',String(Math.floor(78+Math.sin(this.t/500)*5))+"px");
-		// this.body.css('width',String(150+Math.sin(this.t/1000)*10)+"px");
+		switch(this.state){
+			default:
+			case 0:
+				//Do nothing
+				break;
+			case 1:
+				this.handLeft.css('top',String(75+4*Math.sin(this.t/500))+"px");
+				this.body.css('top',String(Math.floor(16+(1-Math.sin(this.t/300))*4))+"px");
+				this.body.css('height',String(Math.floor(129+Math.sin(this.t/300)*4))+"px");
+				// this.handRight.css('left',String(110+4*Math.cos(this.t/700))+"px");
+				this.handRight.css('top',String(75+4*Math.abs(Math.sin(this.t/1800)))+"px");
+				break;
+
+		}
+		
 	};
 
 	this.init = function(){

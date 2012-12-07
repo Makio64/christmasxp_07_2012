@@ -9,80 +9,119 @@ html {
 }
 
 body {
+	overflow: hidden;
     height: 100%;
     margin: 0;
 	background-color:#FAFAFA;
 }
 
-.cat {
+#texts{
 	position: absolute;
+	font-family: 'Rum Raisin', sans-serif;
+	left: 0;
+	top: 70%;
+	width: 100%;
+	text-align: center;
+	color: #f25151;
+	font-weight: normal;
+	font-size: 36px;
+}
+
+#zZz{
+	z-index: 1;
+	position: absolute;
+	left:50%;
+	top:60%;
+	margin-left:50px;
+	margin-top: -410px; 
+}
+
+#zZz img{
+	opacity: 1;
+	position: absolute;
+}
+
+#wall {
+	z-index: 0;
+	position: absolute;
+	cursor: pointer;
 	left:50%;
 	top:60%;
 	margin-left:-150px;
 	margin-top: -150px; 
 }
 
-.cat img {
+#cat {
+	z-index: 1;
+	position: absolute;
+	cursor: pointer;
+	left:50%;
+	top:60%;
+	margin-left:-150px;
+	margin-top: -150px; 
+}
+
+#cat img {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
 
-.cat #shadow {
+#cat #shadow {
 	top: 40px;
 }
 
-.cat #body{
+#cat #body{
 	top: 20px;
 	left:45px; 
 }
 
-.cat #head{
+#cat #head{
 	top: 20px;
 	left:155px; 
 }
 
-.cat #tail{
+#cat #tail{
 	left:35px;
 	top: 90px; 
 }
 
-.cat #ear1{
+#cat #ear1{
 	left:205px;
 	top: 0px; 
 }
 
-.cat #ear2{
+#cat #ear2{
 	left:235px;
 	top: 75px; 
 }
 
-.cat #handLeft{
+#cat #handLeft{
 	left:165px;
 	top: 75px; 
 }
 
-.cat #handRight{
+#cat #handRight{
 	left:115px;
 	top: 75px; 
 }
 
-.cat #mouth{
+#cat #mouth{
 	left:195px;
 	top: 98px; 
 }
 
-.cat #mustache{
+#cat #mustache{
 	left:170px;
 	top: 50px; 
 }
 
-.cat #eye1{
+#cat #eye1{
 	left:200px;
 	top: 80px; 
 }
 
-.cat #eye2{
+#cat #eye2{
 	left:215px;
 	top: 100px; 
 }
