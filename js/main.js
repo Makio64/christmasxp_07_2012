@@ -95,7 +95,7 @@ function catClick()
 	}
 	if(cat.state == 4){
 		state = 0;
-		TweenLite.to($('#wall'),.4,{css:{opacity:0}});
+		TweenLite.to($('#wall'),1.1,{css:{height:0},ease:Quad.easeIn});
 	    TweenLite.to($("#catSleep"),.5,{delay:.3,ease:Quad.easeOut,css:{scaleX:1,marginTop:"-136px"}});
 	    TweenLite.to($("#cat"),.5,{delay:.3,ease:Quad.easeOut,css:{scaleX:1,marginTop:"-150px"}});
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-180px",scaleX:.8,scaleY:1}});
@@ -123,7 +123,7 @@ function catClick()
 			clickMe[i].close();
 		};
 
-		TweenLite.to($('#wall'),.4,{delay:.3,css:{opacity:1}});
+		TweenLite.to($('#wall'),1.4,{delay:.3,css:{height:"150px"},ease:Back.easeOut});
 		fxs[1].activate();
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-180px",scaleX:.8}});
 		TweenLite.to($("#catShadow"),.2,{delay:.2,css:{marginLeft:"-180px",scaleX:.7,opacity:.4}});

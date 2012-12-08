@@ -24,13 +24,12 @@ var Cat = function(){
 	    formats: [ "mp3" ]
 	});;
 
-	this.electricity.setVolume(4);
+	this.electricity.setVolume(10);
 
 	this.grrr = new buzz.sound("./sfx/cat_angry", {
 	    preload: true,
 	    formats: [ "mp3" ],
-	});;
-	this.grrr.setVolume(7);
+	});
 
 	this.body = $("<img class='body' src='./img/body.png'/>");
 	this.body2 = $("<img class='body' src='./img/body.png'/>");
