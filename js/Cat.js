@@ -57,6 +57,10 @@ var Cat = function(){
 	TweenLite.to(this.eye1,0,{css:{opacity:0,left:130}});
 	TweenLite.to(this.eye2,0,{css:{opacity:0,left:130}});
 
+	this.handRight.mouseenter(function (e) {
+		TweenLite.to(this.handRight,.5,{css:{rotation:-30}});
+	}.bind(this));
+
 	this.update = function(dt) {
 		this.t += dt;
 		switch(this.state){
@@ -65,7 +69,6 @@ var Cat = function(){
 				//Do nothing
 				break;
 			case 2:
-				console.log("update");
 				this.handLeft.css('top',String(75+4*Math.sin(this.t/500))+"px");
 				this.body.css('top',String(Math.floor(16+(1-Math.sin(this.t/300))*4))+"px");
 				this.body.css('height',String(Math.floor(129+Math.sin(this.t/300)*4))+"px");

@@ -3,10 +3,17 @@
 */
 
 var sw, sh;
+<<<<<<< HEAD
 var cat;
 var clickMe=[];
+=======
+var cat, catTail;
+var clickMe;
+>>>>>>> d2a4eb5facbc78686defc884b9da0a6e6b7885fe
 var state = 0;
 var gift;
+var mouseX = 0,
+		mouseY = 0;
 var fxs=[];
 var PI = Math.PI, PI2 = Math.PI*2, HalfPI = Math.PI/2;
 var lastTime = Date.now();
@@ -18,6 +25,11 @@ jQuery(document).ready(function($) {
 	});
 });
 
+$(document).mousemove(function (e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}.bind(this));
+
 //entry point
 function init() {
 	TweenLite.to($("body"),.7,{css:{opacity:1}});
@@ -25,8 +37,14 @@ function init() {
 	sh = $(window).height();
 	cat = new Cat();
 	fxs.push( new CircleNoise() );
+<<<<<<< HEAD
 	clickMe.push(new ClickMe(270,0));
+=======
+	fxs.push( new CircleWaves() );
+	clickMe = new ClickMe();
+>>>>>>> d2a4eb5facbc78686defc884b9da0a6e6b7885fe
 	state = 0;
+	
 	requestAnimationFrame(mainLoop);
 	$("#hitbox").click(function(e){
 		catClick();
@@ -34,13 +52,27 @@ function init() {
 	TweenLite.to($("#catShadow"),0,{css:{marginLeft:"-180px",scaleX:.8}});
 }
 
+function createCatTail () {
+	var canvas = document.createElement('canvas');
+	canvas.width = 300;
+	canvas.height = 300;
+	catTail = new CatTail(canvas, 10);
+	$('#catTail').append(canvas);
+}
+
 function mainLoop() {
 	var dt = Date.now()-lastTime;
 	var i;
 
 	cat.update(dt);
+<<<<<<< HEAD
 	
 	for (i = fxs.length - 1; i >= 0; i--) {
+=======
+	if(catTail != undefined)
+		catTail.update(dt);
+	for (var i = fxs.length - 1; i >= 0; i--) {
+>>>>>>> d2a4eb5facbc78686defc884b9da0a6e6b7885fe
 		fxs[i].redraw();
 	};
 	for (i = clickMe.length - 1; i >= 0; i--) {
@@ -56,6 +88,7 @@ function mainLoop() {
 function catClick(){
 	if(cat.state==0){
 		zzz = new ZzZzZ($("#zZz"));
+		createCatTail();
 		cat.open();
 		// clickMe[0].open();
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-150px",scaleX:1}});

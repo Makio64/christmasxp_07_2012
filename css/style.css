@@ -45,6 +45,15 @@ body {
 	position: absolute;
 }
 
+#catTail{
+	position: absolute;
+	margin-left: -244px;
+	margin-top: -126px;
+	top: 50%;
+	left: 50%;
+	z-index: 23;
+}
+
 #wall {
 	z-index: 0;
 	position: absolute;
@@ -63,6 +72,15 @@ body {
 	top:60%;
 	margin-left:-103px;
 	margin-top: -130px; 
+}
+
+#catSleep canvas {
+	position: absolute;
+}
+
+#catSleep .circleWaves {
+	top: -14px;
+	left: -25px;
 }
 
 #hitbox {
@@ -119,7 +137,8 @@ body {
 
 #cat #tail{
 	left:35px;
-	top: 90px; 
+	top: 90px;
+	display:none;
 }
 
 #cat #ear1{
