@@ -58,6 +58,4 @@ function catClick(){
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-180px",scaleX:.8}});
 	}
 	clickMe.activate();
-	TweenLite.to($("#cat"),.4,{ease:Quad.easeInOut,css:{marginLeft:"-115px",marginTop:"-250px", scaleX:.7,scaleY:.7}});
-	TweenLite.to($("#cat"),.6,{delay:.1,css:{marginLeft:"-150px",marginTop:"-150px",scaleX:1,scaleY:1}});
 	}
