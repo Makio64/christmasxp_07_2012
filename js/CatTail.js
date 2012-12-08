@@ -10,7 +10,7 @@ var CatTail = function (canvas, subdivisions) {
   ];
   var points = [];
   for (var i = 0; i < basePoints.length; i++) {
-    points.push(basePoints[i].clone());
+    points.push(new DynamicPoint(halfCanvasWidth, halfCanvasHeight));
   }
 
   this.update = function () {
@@ -41,6 +41,10 @@ var CatTail = function (canvas, subdivisions) {
 
     this.draw();
   };
+
+  // this.open = function () {
+    
+  // }
 
   this.draw = function () {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);

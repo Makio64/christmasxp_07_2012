@@ -33,7 +33,7 @@ function init() {
 	fxs.push( new CircleNoise() );
 	clickMe = new ClickMe();
 	state = 0;
-	createCatTail();
+	
 	requestAnimationFrame(mainLoop);
 	$("#hitbox").click(function(e){
 		catClick();
@@ -52,7 +52,8 @@ function createCatTail () {
 function mainLoop() {
 	var dt = Date.now()-lastTime;
 	cat.update(dt);
-	catTail.update(dt);
+	if(catTail != undefined)
+		catTail.update(dt);
 	for (var i = fxs.length - 1; i >= 0; i--) {
 		fxs[i].redraw();
 	};
@@ -66,6 +67,7 @@ function mainLoop() {
 function catClick(){
 	if(cat.state==0){
 		zzz = new ZzZzZ($("#zZz"));
+		createCatTail();
 		cat.open();
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-150px",scaleX:1}});
 	} else if(cat.life > 0){
