@@ -152,11 +152,11 @@ var Cat = function(){
 		this.angryTail.css("opacity",1);
 		this.angryFace.css("opacity",1);
 
-		TweenLite.from(this.leg1,.8,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
-		TweenLite.from(this.leg2,.8,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
-		TweenLite.from(this.leg3,.8,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
+		TweenLite.from(this.leg1,.2,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
+		TweenLite.from(this.leg2,.2,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
+		TweenLite.from(this.leg3,.2,{delay:delay,ease:Back.easeOut,css:{opacity:0, top:20, left:50}});
 		TweenLite.from(this.angryTail,.6,{delay:delay,ease:Back.easeOut,css:{opacity:0,scaleX:.8,scaleY:.8, top:0, left:50}});
-		TweenLite.from(this.angryFace,.7,{delay:delay,ease:Back.easeOut,css:{opacity:0,scaleX:.8,scaleY:.8, top:0, left:50},onComplete:this.onOpenAngryComplete,onCompleteParams:[this]});
+		TweenLite.from(this.angryFace,.2,{delay:delay,ease:Back.easeOut,css:{opacity:0,scaleX:.8,scaleY:.8, top:0, left:50},onComplete:this.onOpenAngryComplete,onCompleteParams:[this]});
 	}
 
 	this.destroyCat = function(delay){
