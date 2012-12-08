@@ -13,14 +13,16 @@ body {
     height: 100%;
     margin: 0;
 	background-color:#FAFAFA;
+	opacity: 0;
 }
 
 #texts{
 	position: absolute;
-	z-index: 10;
+	z-index: 30;
 	left: 50%;
 	top: 50%;
-	opacity: .5;
+	margin-left: -53px;
+	/*opacity: .5;*/
 	background: #000;
 }
 
@@ -62,6 +64,30 @@ body {
 	margin-top: -150px; 
 }
 
+#catSleep {
+	z-index: 22;
+	position: absolute;
+	cursor: pointer;
+	left:50%;
+	top:60%;
+	margin-left:-103px;
+	margin-top: -130px; 
+}
+
+#hitbox {
+	z-index: 20000;
+	position: absolute;
+	cursor: pointer;
+	left:50%;
+	top:50%;
+	width: 280px;
+	height: 190px;
+	margin-left:-150px;
+	margin-top: -100px; 
+	opacity: 0;
+	background: #000;
+}
+
 #cat {
 	z-index: 20;
 	position: absolute;
@@ -76,15 +102,23 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
+	opacity: 0;
 }
 
-#cat #shadow {
-	top: 40px;
+#catShadow {
+	z-index: 19;
+	position: absolute;
+	cursor: pointer;
+	left:50%;
+	top:60%;
+	margin-left:-150px;
+	margin-top: -110px; 
 }
 
-#cat #body{
+#cat .body{
 	top: 20px;
 	left:45px; 
+	opacity: 1;
 }
 
 #cat #head{
