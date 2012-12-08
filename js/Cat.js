@@ -33,6 +33,10 @@ var Cat = function(){
 	container.append(this.eye1);
 	container.append(this.eye2);
 
+	this.handRight.mouseenter(function (e) {
+		TweenLite.to(this.handRight,.5,{css:{rotation:-30}});
+	}.bind(this));
+
 	this.update = function(dt) {
 		this.t += dt;
 		switch(this.state){

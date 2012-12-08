@@ -3,10 +3,11 @@
 */
 
 var sw, sh;
-var cat;
+var cat, catTail;
 var clickMe;
 var state = 0;
 var gift;
+var mouseX, mouseY;
 var PI = Math.PI, PI2 = Math.PI*2, HalfPI = Math.PI/2;
 var lastTime = Date.now();
 
@@ -16,6 +17,11 @@ jQuery(document).ready(function($) {
 	});
 });
 
+$(document).mousemove(function (e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+}.bind(this));
+
 //entry point
 function init() {
 	sw = $(window).width();
@@ -24,6 +30,7 @@ function init() {
 	zzz = new ZzZzZ($("#zZz"));
 	clickMe = new ClickMe();
 	state = 0;
+	createCatTail();
 	requestAnimationFrame(mainLoop);
 	$("#cat").click(function(e){
 		catClick();
@@ -32,15 +39,16 @@ function init() {
 
 function createCatTail () {
 	var canvas = document.createElement('canvas');
-	canvas.width= 500;
-	canvas.height= 500;
-	var catTail = new CatTail(canvas, 10);
+	canvas.width = 300;
+	canvas.height = 300;
+	catTail = new CatTail(canvas, 10);
 	$('#catTail').append(canvas);
 }
 
 function mainLoop() {
 	var dt = Date.now()-lastTime;
 	cat.update(dt);
+	catTail.update(dt);
 	zzz.update(dt);
 	clickMe.update(dt);
 	lastTime = lastTime+dt;

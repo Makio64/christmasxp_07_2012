@@ -45,11 +45,11 @@ body {
 
 #catTail{
 	position: absolute;
-	margin-left:-250px;
-	margin-top: -250px;
-	top: 52%;
-	left: 36%;
-	z-index: 10;
+	margin-left: -250px;
+	margin-top: -130px;
+	top: 50%;
+	left: 50%;
+	z-index: 21;
 }
 
 #wall {
@@ -94,7 +94,8 @@ body {
 
 #cat #tail{
 	left:35px;
-	top: 90px; 
+	top: 90px;
+	display:none;
 }
 
 #cat #ear1{
