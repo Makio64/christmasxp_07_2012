@@ -165,19 +165,19 @@ var Cat = function(){
 		TweenLite.to(this.leg3,.2,{delay:delay,ease:Quad.easeIn,css:{opacity:0, top:20, left:50}});
 		TweenLite.to(this.angryTail,.2,{delay:delay,ease:Quad.easeIn,css:{opacity:0,scaleX:.8,scaleY:.8, top:0, left:50}});
 		TweenLite.to(this.angryFace,.2,{delay:delay,ease:Quad.easeIn,css:{opacity:0,scaleX:.8,scaleY:.8, top:0, left:50}});
-	container.append(this.handLeft);
-	container.append(this.ear2);
-	container.append(this.head);
-	container.append(this.ear1);
-	container.append(this.mouth);
-	container.append(this.mustache);
-	container.append(this.handRight);
-	container.append(this.tail);
-	container.append(this.eye1);
-	container.append(this.eye2);
-	container.append(this.angryEyes);
-	container.append(this.body2);
-	this.body2.css("opacity",0);
+		container.append(this.handLeft);
+		container.append(this.ear2);
+		container.append(this.head);
+		container.append(this.ear1);
+		container.append(this.mouth);
+		container.append(this.mustache);
+		container.append(this.handRight);
+		container.append(this.tail);
+		container.append(this.eye1);
+		container.append(this.eye2);
+		container.append(this.angryEyes);
+		container.append(this.body2);
+		this.body2.css("opacity",0);
 	}
 
 	this.onOpenComplete = function(cat){
