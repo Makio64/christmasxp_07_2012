@@ -4,7 +4,7 @@
 
 var sw, sh;
 var cat;
-var clickMe;
+var clickMe=[];
 var state = 0;
 var gift;
 var fxs=[];
@@ -25,7 +25,7 @@ function init() {
 	sh = $(window).height();
 	cat = new Cat();
 	fxs.push( new CircleNoise() );
-	clickMe = new ClickMe();
+	clickMe.push(new ClickMe(270,0));
 	state = 0;
 	requestAnimationFrame(mainLoop);
 	$("#hitbox").click(function(e){
@@ -36,13 +36,19 @@ function init() {
 
 function mainLoop() {
 	var dt = Date.now()-lastTime;
+	var i;
+
 	cat.update(dt);
-	for (var i = fxs.length - 1; i >= 0; i--) {
+	
+	for (i = fxs.length - 1; i >= 0; i--) {
 		fxs[i].redraw();
+	};
+	for (i = clickMe.length - 1; i >= 0; i--) {
+		clickMe[i].update(dt);
 	};
 	if(zzz != undefined)
 		zzz.update(dt);
-	clickMe.update(dt);
+	
 	lastTime = lastTime+dt;
 	requestAnimationFrame(mainLoop);
 }
@@ -51,11 +57,28 @@ function catClick(){
 	if(cat.state==0){
 		zzz = new ZzZzZ($("#zZz"));
 		cat.open();
+		// clickMe[0].open();
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-150px",scaleX:1}});
-	} else if(cat.life > 0){
+		for (i = clickMe.length - 1; i >= 0; i--) {
+			clickMe[i].activate();
+		};
+	} else if(cat.life == 0){
 		zzz.close();
 		cat.close();
+		for (i = clickMe.length - 1; i >= 0; i--) {
+			clickMe[i].close();
+		};
 		TweenLite.to($("#catShadow"),.2,{css:{marginLeft:"-180px",scaleX:.8}});
-	}
-	clickMe.activate();
-	}
+	} else {
+		switch(cat.life){
+			case 3:
+				clickMe.push(new ClickMe(135,2,-40))
+				clickMe.push(new ClickMe(45,1,-40))
+				break;
+		}
+		cat.angry();	
+		for (i = clickMe.length - 1; i >= 0; i--) {
+			clickMe[i].activate();
+		};
+	} 
+}

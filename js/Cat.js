@@ -4,19 +4,18 @@ var Cat = function(){
 
 	this.t = 0;
 	this.state = 0;
+	this.life = 3;
+
 	this.ronflement = new buzz.sound("./sfx/cat_sleeping", {
 	    preload: true,
 	    formats: [ "mp3" ],
-	    // autoplay: true,
 	    loop: true
 	});;
 	this.meow = new buzz.sound("./sfx/cat_meow", {
 	    preload: true,
 	    formats: [ "mp3" ],
-	    // autoplay: true,
 	});;
-	this.meow.setVolume(7);
-	// this.sound = new Audio();
+	this.meow.setVolume(6);
 
 	this.body = $("<img class='body' src='./img/body.png'/>");
 	this.body2 = $("<img class='body' src='./img/body.png'/>");
@@ -82,9 +81,8 @@ var Cat = function(){
 		this.bounce();
 		this.ronflement.play();
 		this.state = 1;
-		this.meow.play();
 		TweenLite.to(this.handLeft,.2,{ease:Quad.easeOut,delay:.2,css:{opacity:1,left:165}});
-		TweenLite.to(this.body2,0.2,{ease:Quad.easeOut,delay:.2,css:{opacity:0}});
+		TweenLite.to(this.body2,.2,{ease:Quad.easeOut,delay:.2,css:{opacity:0}});
 		TweenLite.to(this.ear2,.2,{ease:Quad.easeOut,delay:.2,css:{opacity:1,left:235}});
 		TweenLite.to(this.ear1,.2,{ease:Quad.easeOut,delay:.2,css:{opacity:1,left:205,top:0}});
 		TweenLite.to(this.head,.2,{ease:Quad.easeOut,delay:.2,css:{opacity:1,left:155}});
@@ -97,9 +95,7 @@ var Cat = function(){
 	}
 
 	this.onOpenComplete = function(cat){
-		console.log("this.onOpenComplete");
 		cat.state = 2;
-		console.log(cat);
 	}
 
 	this.close = function(){
@@ -120,6 +116,11 @@ var Cat = function(){
 		TweenLite.to(this.eye2,.05,{css:{opacity:0,left:130}});
 
 		TweenLite.to(this.body2,0,{delay:.2, css:{opacity:0}});
+	}
+
+	this.angry = function(){
+		this.life--;
+		this.meow.play();
 	}
 
 	this.bounce = function(){
