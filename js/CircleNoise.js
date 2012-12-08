@@ -1,10 +1,10 @@
 var CircleNoise = function()
 {	
 	this.w = 130;
-	this.h = 120;
+	this.h = 125;
 	this.segments = 100;
 	this.points = 5;
-	this.radius = 8;
+	this.radius = 9;
 	
 	this.canvas = document.createElement('canvas');
 	this.canvas.width = this.w + this.radius*2;
@@ -13,6 +13,13 @@ var CircleNoise = function()
 	this.ctx = this.canvas.getContext("2d");
 	
 	$("#catSleep").append(this.canvas);
+
+	this.activate = function()
+	{
+		// this.segments = 100;
+		// this.points = 10;
+		this.radius = 10;
+	}
 
 	this.redraw = function()
 	{

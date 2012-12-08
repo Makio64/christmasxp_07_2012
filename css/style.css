@@ -14,6 +14,7 @@ body {
     margin: 0;
 	background-color:#FAFAFA;
 	opacity: 0;
+	-webkit-perspective:500px;
 }
 
 #texts{
@@ -22,7 +23,6 @@ body {
 	left: 50%;
 	top: 50%;
 	margin-left: -53px;
-	/*opacity: .5;*/
 	background: #000;
 }
 
@@ -71,7 +71,7 @@ body {
 	left:50%;
 	top:60%;
 	margin-left:-103px;
-	margin-top: -130px; 
+	margin-top: -134px; 
 }
 
 #catSleep canvas {
@@ -79,8 +79,8 @@ body {
 }
 
 #catSleep .circleWaves {
-	top: -14px;
-	left: -25px;
+	top: -15px;
+	left: -24px;
 }
 
 #hitbox {
@@ -105,6 +105,7 @@ body {
 	top:60%;
 	margin-left:-150px;
 	margin-top: -150px; 
+	/*-webkit-transform: rotateY(15deg);*/
 }
 
 #cat img {
@@ -128,6 +129,31 @@ body {
 	top: 20px;
 	left:45px; 
 	opacity: 1;
+}
+
+#cat #angryface{
+	top: 55px;
+	left:26px; 
+}
+
+#cat #angrytail{
+	top: -168px;
+	left:137px; 
+}
+
+#cat #leg1{
+	top: 136px;
+	left:18px; 
+}
+
+#cat #leg2{
+	top: 130px;
+	left:115px; 
+}
+
+#cat #leg3{
+	top: 71px;
+	left:144px; 
 }
 
 #cat #head{
@@ -179,4 +205,20 @@ body {
 #cat #eye2{
 	left:215px;
 	top: 100px; 
+}
+
+#cat #angryEyes{
+	left:200px;
+	top: 80px; 
+}
+
+#gift{
+	z-index: 50;
+	position: absolute;
+	left:50%;
+	top:0;
+	margin-left: -171px;
+	width: 282px;
+	height: 265px;
+	margin-top:-265px;
 }

@@ -10,18 +10,8 @@ var ZzZzZ = function (container)
 	this.texts = [];
 	this.opacitys = [];
 	this.state = 0;
-
-	var maxLetters = 5;
-
-	for(var i = 0; i < maxLetters; i++) {
-		var text = $("<img src='img/z.png' />");
-		text.css("top", (i*50)+"px");
-		text.css("opacity", 0);
-		text.css("left", String(Math.cos(PI * .7 * i)*30)+"px");
-		container.append(text);
-		this.texts.push(text);
-		this.opacitys.push(0);
-	}
+	this.lastText = 0;
+	
 
 	this.close = function(){
 		this.state = 1;
@@ -35,6 +25,18 @@ var ZzZzZ = function (container)
 		
 		if(this.state>=0){
 			var text;
+			if(this.texts.length<5){
+				this.lastText+=dt
+				if(this.lastText >= 900){
+					var text = $("<img src='img/z.png' />");
+					text.css("top", 250+"px");
+					text.css("opacity", 0);
+					container.append(text);
+					this.texts.push(text);
+					this.opacitys.push(0);
+					this.lastText = 0;
+				}
+			}
 			for (var i = this.texts.length - 1; i >= 0; i--) {
 				text = this.texts[i];
 				opacity = this.opacitys[i];

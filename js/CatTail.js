@@ -2,6 +2,8 @@ var CatTail = function (canvas, subdivisions) {
   var halfCanvasWidth = canvas.width * 0.5;
   var halfCanvasHeight = canvas.height * 0.5;
   this.ctx = canvas.getContext("2d");
+  this.state = 0;
+  this.canvas = canvas;
   var basePoints = [
     new DynamicPoint(halfCanvasWidth + 5, halfCanvasHeight + 6),
     new DynamicPoint(halfCanvasWidth - 20, halfCanvasHeight + 43),
@@ -63,6 +65,26 @@ var CatTail = function (canvas, subdivisions) {
     this.ctx.stroke();
     this.ctx.restore();
   };
+
+  this.close = function(){
+    this.state = 1;
+    for (var i = basePoints.length - 1; i >= 0; i--) {
+      basePoints[i].x = halfCanvasWidth;
+      basePoints[i].y = halfCanvasHeight;
+    };
+    TweenLite.to(this.canvas,.5,{css:{opacity:0}});
+  }
+
+  this.open = function(){
+    this.state = 0;
+    basePoints = [
+      new DynamicPoint(halfCanvasWidth + 5, halfCanvasHeight + 6),
+      new DynamicPoint(halfCanvasWidth - 20, halfCanvasHeight + 43),
+      new DynamicPoint(halfCanvasWidth + 12, halfCanvasHeight + 60),
+      new DynamicPoint(halfCanvasWidth + 65, halfCanvasHeight + 40)
+    ];
+    TweenLite.to(this.canvas,.3,{css:{opacity:1}});
+  }
 };
 
 
