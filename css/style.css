@@ -47,11 +47,11 @@ body {
 
 #catTail{
 	position: absolute;
-	margin-left: -250px;
-	margin-top: -130px;
+	margin-left: -244px;
+	margin-top: -126px;
 	top: 50%;
 	left: 50%;
-	z-index: 21;
+	z-index: 23;
 }
 
 #wall {
@@ -72,6 +72,15 @@ body {
 	top:60%;
 	margin-left:-103px;
 	margin-top: -130px; 
+}
+
+#catSleep canvas {
+	position: absolute;
+}
+
+#catSleep .circleWaves {
+	top: -14px;
+	left: -25px;
 }
 
 #hitbox {

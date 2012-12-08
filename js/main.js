@@ -7,7 +7,8 @@ var cat, catTail;
 var clickMe;
 var state = 0;
 var gift;
-var mouseX, mouseY;
+var mouseX = 0,
+		mouseY = 0;
 var fxs=[];
 var PI = Math.PI, PI2 = Math.PI*2, HalfPI = Math.PI/2;
 var lastTime = Date.now();
@@ -31,6 +32,7 @@ function init() {
 	sh = $(window).height();
 	cat = new Cat();
 	fxs.push( new CircleNoise() );
+	fxs.push( new CircleWaves() );
 	clickMe = new ClickMe();
 	state = 0;
 	

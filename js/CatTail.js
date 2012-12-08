@@ -8,15 +8,17 @@ var CatTail = function (canvas, subdivisions) {
     new DynamicPoint(halfCanvasWidth + 12, halfCanvasHeight + 60),
     new DynamicPoint(halfCanvasWidth + 65, halfCanvasHeight + 40)
   ];
-  var points = [];
-  for (var i = 0; i < basePoints.length; i++) {
-    points.push(new DynamicPoint(halfCanvasWidth, halfCanvasHeight));
-  }
+  var points = [
+    new DynamicPoint(halfCanvasWidth + 10, halfCanvasHeight + 6),
+    new DynamicPoint(halfCanvasWidth, halfCanvasHeight),
+    new DynamicPoint(halfCanvasWidth + 50, halfCanvasHeight),
+    new DynamicPoint(halfCanvasWidth + 150, halfCanvasHeight - 100)
+  ];
 
   this.update = function () {
     var localMouseX = mouseX - $(canvas).offset().left;
     var localMouseY = mouseY - $(canvas).offset().top;
-    for (var i = 1; i < points.length; i++) {
+    for (var i = 0; i < points.length; i++) {
       var p = points[i];
       var bp = basePoints[i];
       var x, y;
@@ -29,8 +31,8 @@ var CatTail = function (canvas, subdivisions) {
         x = pBase.x;
         y = pBase.y;
       }
-      var rigidity = 0.2;
-      var friction = 0.7;
+      var rigidity = 0.1;
+      var friction = (i / (points.length - 1)) * 0.95;
       var ax = (x - p.x) * rigidity;
       var ay = (y - p.y) * rigidity;
       p.vx = (p.vx + ax) * friction;
@@ -41,10 +43,6 @@ var CatTail = function (canvas, subdivisions) {
 
     this.draw();
   };
-
-  // this.open = function () {
-    
-  // }
 
   this.draw = function () {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
