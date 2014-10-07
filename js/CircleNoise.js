@@ -25,7 +25,7 @@ var CircleNoise = function()
 	{
 		this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
 		this.ctx.beginPath();
-		this.ctx.strokeStyle = "f25151";
+		this.ctx.strokeStyle = "#f25151";
 		this.ctx.lineWidth = 1;		
 		this.ctx.beginPath();
 

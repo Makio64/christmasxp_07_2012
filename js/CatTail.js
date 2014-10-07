@@ -56,8 +56,8 @@ var CatTail = function (canvas, subdivisions) {
     var p2 = points[2];
     var p3 = points[3];
     var gradient = this.ctx.createLinearGradient(p0.x,p0.y,p3.x,p3.y);
-    gradient.addColorStop(0.7,"f25151");
-    gradient.addColorStop(1,"ffd091");
+    gradient.addColorStop(0.7,"#f25151");
+    gradient.addColorStop(1,"#ffd091");
     this.ctx.strokeStyle = gradient;
     this.ctx.beginPath();
     this.ctx.moveTo(p0.x,p0.y);
